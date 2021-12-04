@@ -1,0 +1,407 @@
+/********VARIABLES PRINCIPALES DEL PROYECTO***********/
+:root{
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #664625;
+    --negro: #222222;
+    --claro: rgb(244,244,244);
+    --verdesito: #89A490;
+}
+/*************FIN VARIABLES PRINCIPALES****************/
+
+html{
+    box-sizing: border-box; /* FIJO EN TODOS LOS PROYECTOS*/
+    font-size: 62.5%; /*1 rem = 10px */
+}
+*,*:before, *:after{ /*reset*/
+    box-sizing: inherit;
+}
+
+body{
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 1.5; /*en los blogs usar mas interlineado para que sea facil de leer*/
+    color: var(--negro);
+     background: rgb(254,173,166);
+    background: linear-gradient(9deg, rgba(254,173,166,1) 0%, rgba(245,239,239,1) 100%); 
+}
+
+/****************************GLOBALES*************************/
+/*************LO QUE SE UTILIZA MAS DE UNA VEZ****************/
+
+.contenedor {
+    max-width: 120rem; /*EL MAXIMO SEGUN RESOLUCION PANTALLA*/
+    width: 90%; /*SI ES EN CELULAR*/
+    margin: 0 auto; /*CENTRAR CONTENEDOR*/
+}
+a{
+    text-decoration: none;
+}
+
+h1,h2,h3,h4{
+    font-family: var(--fuenteHeading);
+    line-height: 1.2;
+}
+h1{
+    font-size: 4.8rem;
+}
+h2{
+    font-size: 4rem;
+}
+h3{
+    font-size: 3.2rem;
+}
+h4{
+    font-size: 2.8rem;
+}
+
+img{
+    width: 100%;
+    outline: solid var(--verdesito);
+    
+}
+ul{
+    list-style: none;
+}
+
+
+
+/******************************UTLIDADES******************************/
+.no-margin{
+    margin: 0;
+}
+.no-padding{
+    padding: 0;
+}
+.centrar-texto{
+    text-align: center;
+}
+.sombras{
+    text-shadow: 1px 1px 2px black, 0 0 1em var(--verdesito), 0 0 0.2em var(--primario);
+}
+.bordes{ 
+    border-color: var(--verdesito);
+    border-style: solid;
+    border-radius: 10px;
+    padding: 4rem;
+    margin: 1rem auto;  
+}
+/******************************FIN UTLIDADES*****************************/
+
+
+
+/******************************HEADER*****************************/
+.header{
+    background-image: url(../img/banner2.webp);
+    height: 45rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-bottom: 4px solid var(--verdesito);
+    margin-bottom: 5rem;
+}
+
+.header__texto{
+    text-align: center;
+    margin-top: 3rem;
+    color: var(--claro);
+}
+
+.header__texto h2{
+    font-size: 5rem;
+    animation: flipInX;
+    animation-duration: 2s;
+    
+}
+
+@media(min-width: 768px) {
+    .header__texto{
+        margin-top: 15rem;
+    }
+}
+
+@media(min-width: 768px) {
+    /*En un dispositivo movil se muestra la navegacion verticalmente**********/
+    /*En un dipositivo mas grande (tablet, pc,etc) se muestra horizontalmente*/
+    .barra{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2rem;
+    }
+}
+.navegacion{
+    padding-left: 0;
+}
+@media(min-width: 768px) {
+    .navegacion{
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.navegacion__enlace{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--claro);
+}
+
+.logo{
+    color: var(--claro)
+}
+.logo__nombre{
+    font-weight: 400;
+    font-size: 5.5rem;
+}
+.logo__bold{
+    font-weight: 700;
+}
+
+/******************************FIN HEADER*****************************/
+
+
+/******************************CONTENIDO MAIN****************************/
+.contenido-principal{
+    background: var(--claro);
+}
+
+@media(min-width: 768px) { /*En tamaño > 768px se divide en 2 columnas */
+    .contenido-principal{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+
+.entrada{ /*Borde inferior de cada entrada de blog*/
+    border-bottom: 2px solid var(--verdesito);
+    margin-bottom: 2rem;
+}
+
+/******************************FIN CONTENIDO MAIN****************************/
+
+
+
+
+
+/******************************BOTON EN CSS****************************/
+
+.button{
+    display: block; /*En disp movil toma todo el ancho*/
+    font-family: var(--fuenteHeading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--claro);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    margin-bottom: 2rem;
+
+}
+
+@media(min-width: 768px) { /*vista mobile ocupa todo el ancho*/
+    .button{
+        display: inline-block;
+    }
+    
+}
+.button--primario{
+    background-color: var(--negro); /*color btn en blog*/
+    transition: all .5s;
+}
+.button--primario:hover{
+    background-color: var(--verdesito);
+    color: var(--negro);
+}
+.button--secundario{
+    background-color: var(--primario); /*color btn en aside*/
+    transition: all .5s;
+}
+.button--secundario:hover{
+    background-color: var(--verdesito);
+    color: var(--primario);
+}
+/******************************FIN BOTON****************************/
+
+
+
+/******************************BARRA ASIDE****************************/
+
+.widget-curso{
+    border-bottom: 2px solid var(--verdesito);
+    border-left: 2px solid var(--verdesito);
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+.widget-curso__label{
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+.widget-curso__precio{
+    font-weight: normal;
+}
+/******************************FIN BARRA ASIDE****************************/
+
+
+/******************************FOOTER********************************/
+.footer{
+    background-image: url(../img/banner2.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left top;
+    height: 25rem;
+    margin-top: 4rem;
+    border-top: 4px solid var(--verdesito);
+}
+@media(min-width: 768px) {
+    .footer{  
+         height: 10rem;
+    }
+}
+
+.copy__descripcion{
+    background-color: var(--verdesito);
+}
+/******************************FIN FOOTER******************************/
+
+
+
+/*****************************ENTRADA DE BLOG*************************** */
+.contenido_blog{
+    background: var(--claro)
+}
+
+/* Start: Video Responsive */
+.video-responsive {
+    overflow:hidden;
+    padding-bottom: 400px; /* Adecua este valor para controlar la altura del video */
+    position:relative;
+    height:0;
+    outline: solid var(--verdesito);
+}
+@media(min-width: 768px) {
+    .video-responsive{
+        padding-bottom: 800px;
+    }
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+/* End: Video Responsive */
+
+
+
+/*****************************PAGE/EQUIPO************************************/
+@media(min-width: 768px) {
+    .contenedor_equipo{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 2rem;
+    }
+}
+
+
+
+/******************************FORMULARIO CONTACTO****************************/
+
+.contacto-bg{
+    background-image: url(../img/contactanos.webp);
+    height: 20rem;
+    background-size: cover;
+    
+}
+
+.formulario{
+    background-color: var(--verdesito);
+    margin: 5rem auto 0 auto;
+    width: 90%;
+    padding: 5rem 1rem;
+    height: 45rem;
+}
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.campo__label{
+    flex: 0 0 9rem;
+    text-align: right;
+    padding-right: 2rem;
+    font-weight: bold;
+}
+.campo__field{
+    flex: 1;
+    border: 2px solid var(--verdesito);
+    overflow: hidden;
+}
+.campo__field--textarea{
+    height: 20rem;
+    resize: none;
+}
+.campo--boton{
+    display: flex;
+    justify-content: center;  
+}
+
+/*************************FIN FORMULARIO CONTACTO**************************/
+
+/*************************PAGE/OPINIONES**************************/
+
+@media(min-width: 768px) {
+    .contenido-opiniones{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 3rem;
+    }
+}
+.contenido-opiniones h4{
+    margin: 1rem;
+}
+
+
+/**************PAGE/CURSO***********************/
+.curso{
+    border-bottom: 2px solid var(--verdesito);
+    padding-bottom: 2rem;
+    transition: all .5s;
+}
+.curso__imagen{
+    transition: all .5s;
+}
+
+@media(max-width: 480px) { /*Solo aplica en celulares */
+    .curso__imagen:hover{
+        transform: scale(1.2);
+    }
+}
+
+
+@media(min-width: 768px) { /*Solo aplica en tablets y desktop*/
+    .curso{
+            display: grid;
+            grid-template-columns: 40% 60%;
+            margin: 5rem;
+    }
+    .curso__info{
+
+            margin-left: 5rem;
+    }
+    .curso h4{
+
+            margin-top: 0rem;
+    }
+    
+    .curso:hover{
+        transform: scale(1.3);
+        padding: 5rem;
+        background-color: var(--claro);
+        border: 2px solid var(--verdesito);
+    }
+
+}
